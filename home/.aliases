@@ -1,0 +1,38 @@
+# system
+alias v='vim'
+alias ls='ls --color'
+alias ll='ls -alF'
+alias c='clear; tmux clear-history 2> /dev/null; tmux clear-history 2> /dev/null'
+alias pu='pushd'
+alias po='popd'
+alias history='fc -l 1'
+
+# tmux
+alias tnew='tmux new-session -s'
+alias tgo='tmux attach -t'
+alias tls='tmux ls'
+
+# postgres
+alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres stop -m fast'
+
+# git
+alias gru='git remote update -p'
+alias gitx-reflog='gitx --all `git reflog | cut -c1-7`'
+alias gwip='git add .; git commit -m "WIP"'
+alias gunwip='git reset --soft HEAD^'
+
+# ruby-related
+alias rake='noglob rake'
+alias rspec='nocorrect rspec'
+alias be='bundle exec'
+alias fs='bundle exec foreman start'
+
+function fr {
+  bundle exec foreman run $@
+}
+
+# misc
+function pjson {
+  python -mjson.tool $@
+}
